@@ -1,6 +1,8 @@
+import 'package:emo_sense/forgot_password.dart';
+import 'package:emo_sense/home_page.dart';
+import 'package:emo_sense/primary_btn.dart';
 import 'package:emo_sense/signup_page.dart';
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -42,108 +44,98 @@ class _SignInPageState extends State<SignInPage> {
                     color: Colors.deepPurpleAccent,
                   ),
                   child: Center(
-                    child: Expanded(
-                      child: Column(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(top: 10.0),
-                            child: Text(
-                              'Sign In',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          SizedBox(
-                            width: 320, // Set a fixed width for the text field
-                            child: TextField(
-                              decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Colors.white,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
+                    child: Column(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(top: 10.0),
+                          child: Text(
+                            'Sign In',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 32,
                                 ),
-                                hintText: 'Email',
-                                hintStyle: const TextStyle(color: Colors.black45),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        SizedBox(
+                          height: 50,
+                          width: 320, // Set a fixed width for the text field
+                          child: TextField(
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
                               ),
+                              hintText: 'Email Address',
+                              hintStyle: const TextStyle(color: Colors.black45),
                             ),
                           ),
-                          const SizedBox(height: 20),
-                          SizedBox(
-                            width: 320, // Set a fixed width for the text field
-                            child: TextField(
-                              obscureText: _isObscured,
-                              decoration: InputDecoration(
-                                filled: true,
-                                suffixIcon: IconButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      _isObscured = !_isObscured;
-                                    });
-                                  },
-                                  icon: _isObscured
-                                      ? const Icon(Icons.visibility, size: 20)
-                                      : const Icon(Icons.visibility_off, size: 20),
-                                ),
-                                fillColor: Colors.white,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
-                                hintText: 'Password',
-                                hintStyle: const TextStyle(color: Colors.black45),
+                        ),
+                        const SizedBox(height: 20),
+                        SizedBox(
+                          height: 50,
+                          width: 320, // Set a fixed width for the text field
+                          child: TextField(
+                            obscureText: _isObscured,
+                            decoration: InputDecoration(
+                              filled: true,
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _isObscured = !_isObscured;
+                                  });
+                                },
+                                icon: _isObscured
+                                    ? const Icon(Icons.visibility, size: 20)
+                                    : const Icon(Icons.visibility_off, size: 20),
                               ),
+                              fillColor: Colors.white,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              hintText: 'Password',
+                              hintStyle: const TextStyle(color: Colors.black45),
                             ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(right: 10.0),
-                                child: TextButton(
-                                  onPressed: () {},
-                                  child: const Text(
-                                    'Forgot Password?',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 12,
-                                    ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(right: 10.0),
+                              child: TextButton(
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const ForgotPassword()));
+                                },
+                                child: const Text(
+                                  'Forgot Password?',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
-                          SizedBox(
-                            width: 200,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12)),
-                              ),
-                              child: const Text(
-                                'Login',
-                                style: TextStyle(color: Colors.black),
-                              ),
+                            ),
+                          ],
+                        ),
+                        PrimaryButton(text: 'Login',colors: Colors.white,textColor: Colors.black, onPress: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const MyHomePage()));
+                        },),
+                        const SizedBox(height: 20),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const SignUpPage()));
+                          },
+                          child: const Text(
+                            'Don\'t have an account? Create new',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
                             ),
                           ),
-                          const SizedBox(height: 20),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.push(context, PageTransition(child: const SignUpPage(), type: PageTransitionType.rightToLeft));
-                            },
-                            child: const Text(
-                              'Don\'t have an account? Create new',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),

@@ -1,3 +1,4 @@
+import 'package:emo_sense/primary_btn.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatelessWidget{
@@ -26,96 +27,99 @@ class SignUpPage extends StatelessWidget{
                     color: Colors.deepPurpleAccent,
                   ),
                   child: Center(
-                    child: Expanded(
-                      child: Column(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(top: 10.0),
-                            child: Text(
-                              'Create New \n   Account',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          const SizedBox(height:20 ,),
-                          SizedBox(
-                            width: 320, // Set a fixed width for the text field
-                            child: TextField(
-                              decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Colors.white,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
-                                hintText: 'Name',
-                                hintStyle: const TextStyle(color: Colors.black45),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          SizedBox(
-                            width: 320, // Set a fixed width for the text field
-                            child: TextField(
-                              decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Colors.white,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
-                                hintText: 'Email',
-                                hintStyle: const TextStyle(color: Colors.black45),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          SizedBox(
-                            width: 320, // Set a fixed width for the text field
-                            child: TextField(
-                              decoration: InputDecoration(
-                                filled: true,
-
-                                fillColor: Colors.white,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
-                                hintText: 'Password',
-                                hintStyle: const TextStyle(color: Colors.black45),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 20,),
-                          SizedBox(
-                            width: 200,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12)),
-                              ),
-                              child: const Text(
-                                'SignUp',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          TextButton(
-                            onPressed: (){
-                              Navigator.pop(context);
-                            },
-                            child: const Text(
-                              'Already Registered? SignIn',
-                              style: TextStyle(
+                    child: Column(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(top: 10.0),
+                          child: Text(
+                            'Create New \n   Account',
+                            style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 12,
+                                fontSize: 32),
+                          ),
+                        ),
+                        const SizedBox(height:20 ,),
+                        SizedBox(
+                          height: 50,
+                          width: 320, // Set a fixed width for the text field
+                          child: TextField(
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
                               ),
+                              hintText: 'Name',
+                              hintStyle: const TextStyle(color: Colors.black45),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                        const SizedBox(height: 20),
+                        SizedBox(
+                          height: 50,
+                          width: 320, // Set a fixed width for the text field
+                          child: TextField(
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              hintText: 'Email Address',
+                              hintStyle: const TextStyle(color: Colors.black45),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        SizedBox(
+                          height: 50,
+                          width: 320, // Set a fixed width for the text field
+                          child: TextField(
+                            decoration: InputDecoration(
+                              filled: true,
+
+                              fillColor: Colors.white,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              hintText: 'Password',
+                              hintStyle: const TextStyle(color: Colors.black45),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        SizedBox(
+                          height: 50,
+                          width: 320, // Set a fixed width for the text field
+                          child: TextField(
+                            decoration: InputDecoration(
+                              filled: true,
+
+                              fillColor: Colors.white,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              hintText: 'Confirm Password',
+                              hintStyle: const TextStyle(color: Colors.black45),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 20,),
+                        PrimaryButton(text: 'SignUp', colors: Colors.white,textColor: Colors.black, onPress: () {  },),
+                        const SizedBox(height: 1),
+                        TextButton(
+                          onPressed: (){
+                            Navigator.pop(context);
+                          },
+                          child: const Text(
+                            'Already Registered? SignIn',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),

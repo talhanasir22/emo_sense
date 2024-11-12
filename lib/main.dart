@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'EmoSense',
       theme: ThemeData(
 
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
       home: const SignInPage(),
