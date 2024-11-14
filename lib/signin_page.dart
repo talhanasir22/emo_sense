@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:emo_sense/forgot_password.dart';
 import 'package:emo_sense/home_page.dart';
 import 'package:emo_sense/primary_btn.dart';
@@ -26,13 +27,19 @@ class _SignInPageState extends State<SignInPage> {
                 radius: 100,
               ),
               const SizedBox(height: 20),
-              const Text(
-                'Welcome To EmoSense',
-                style: TextStyle(
-                    color: Colors.deepPurpleAccent,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold),
-              ),
+             AnimatedTextKit(animatedTexts: [
+               TyperAnimatedText(
+                 'Welcome to EmoSense',
+                 textStyle: const TextStyle(
+                   fontSize: 30,
+                   color: Colors.deepPurpleAccent,
+                   fontWeight: FontWeight.bold,
+                 ),
+                 speed: const Duration(milliseconds: 80),
+               ),
+             ],
+               totalRepeatCount: 1,
+             ),
               const SizedBox(height: 20),
               SizedBox(
                 height: 440,
